@@ -1,0 +1,31 @@
+server:
+  port: 8087
+  servlet:
+    context-path: /test
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        security: error
+        web: debug
+    com:
+      jasper: debug
+    io:
+      grpc: debug
+
+
+grpc:
+  shutdown-grace: 30
+  enable-reflection: true
+  netty-server:
+    max-inbound-message-size: 10MB
+    primary-listen-address: 0.0.0.0:9999
+    on-collision-prefer-shaded-netty: false
+    keep-alive-time: 30s
+    keep-alive-timeout: 5s
+    permit-keep-alive-time: 300s
+    permit-keep-alive-without-calls: true
+  security:
+    auth:
+      enabled: false
